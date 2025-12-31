@@ -1,15 +1,26 @@
-import './App.css';
-//리액트에서는 태그를 만들어 쓴다.
-//주의: 콤포넌트의 이름을 반드시 대문자로 한다.
-//화살표 함수로 변경한 부분
-//() => ()
-//() => {}
+import { Routes, Route } from "react-router";
+import styled from "styled-components";
+
+const AppDiv = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e8e7e6;
+`  
 const App = () => {
+
   //선언부
   return (
-    <div className="App">
-      Hello React!!!
-    </div>
+    <>
+      <AppDiv>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/maker" element={<Maker />} />
+        </Routes>
+      </AppDiv>
+    </>
   );
 }
 
