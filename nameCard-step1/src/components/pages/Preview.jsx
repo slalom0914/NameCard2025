@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Card from "./Card"
 
 const PreviewDiv = styled.div`
     flex-basis: 50%;
@@ -24,8 +25,8 @@ const Preview = ({cards}) => {
       <TitleH1>Card Preview</TitleH1>
       <CardsUl>
       {
-        Object.keys(cards).map(card => (
-          <li>card</li>
+        Object.keys(cards).map(key => (
+          <Card key={key} card={cards[key]} />
         ))
       }
       </CardsUl>
