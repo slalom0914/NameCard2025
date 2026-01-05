@@ -37,6 +37,12 @@ const Maker = () => {
       fileName: 'kim',
       fileURL: null,
     },
+    '3':{
+      id: '3',
+      theme: 'colorful',
+      fileName: 'park',
+      fileURL: null,
+    },    
   });   
 
   const navigate = useNavigate()
