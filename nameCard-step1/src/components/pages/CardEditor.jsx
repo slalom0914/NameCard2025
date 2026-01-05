@@ -14,15 +14,18 @@ const TitleH1 = styled.h1`
 	margin-bottom: 1em;
 	color: #594545;
 `
-const CardEditor = ({FileInput, cards}) => {
+const CardEditor = ({FileInput, cards, insertOrUpdateCard, deleteCard}) => {
   return (
     <EditorDiv>
       <TitleH1>Card Editor</TitleH1>
 			{Object.keys(cards).map(key => (
-				<CardEditorForm FileInput={FileInput} key={key} card={cards[key]} />
+				<CardEditorForm FileInput={FileInput} key={key} card={cards[key]}
+					insertOrUpdateCard={insertOrUpdateCard}
+					deleteCard={deleteCard}
+				/>
 			))}
 			{/* 새로 작성하기 이므로 card넘길 필요없음 */}
-			<CardAddForm FileInput={FileInput} />
+			<CardAddForm FileInput={FileInput} insertOrUpdateCard={insertOrUpdateCard}  />
     </EditorDiv>
   )
 }
