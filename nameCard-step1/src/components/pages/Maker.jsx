@@ -22,7 +22,7 @@ const ContainerDiv = styled.div`
   min-height: 0;
 `
 
-const Maker = () => {
+const Maker = ({FileInput}) => {
 
   const [cards, setCards] = useState({
     '1':{
@@ -56,7 +56,7 @@ const Maker = () => {
     <MarkerDiv>
       <Header handleLogout={handleLogout} />
       <ContainerDiv>
-        <CardEditor />
+        <CardEditor FileInput={FileInput} cards={cards} />
         <Preview cards={cards} />
       </ContainerDiv>
       <Footer />
