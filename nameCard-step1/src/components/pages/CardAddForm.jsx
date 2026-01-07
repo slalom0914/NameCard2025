@@ -77,7 +77,7 @@ const CardAddForm = ({FileInput}) => {
   // 클라우디너리에 업로드 된 후에 결정된 fileName과 fileURL을 수정해야함(후처리)
   const [file, setFile] = useState({ fileName: null, fileURL: null })
   const onFileChange = (file) => {
-    console.log("file : "+file) //호출이 안되고 있어요...... 상위컴포넌트
+    console.log(file) //호출이 안되고 있어요...... 상위컴포넌트
     setFile({
       fileName: file.name, 
       fileURL: file.url 

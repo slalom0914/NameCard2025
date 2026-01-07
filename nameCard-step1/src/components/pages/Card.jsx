@@ -22,8 +22,8 @@ border-radius: 50%; /* 사진이 네모나도 동그랗게 만들기 */
 `    
 
 const Card = ({card}) => {
+  const { name, company, theme, title, email, message,fileName, fileURL} = card 
   const DEFAULT_IMAGE = '/images/default_logo.png'
-  const {theme, fileName, fileURL} = card
   const url = fileURL || DEFAULT_IMAGE
   const getStyles = (theme) => {
     switch(theme) {
@@ -41,7 +41,11 @@ const Card = ({card}) => {
     <CardLi className={`${styles.card} ${getStyles(theme)}`}>
       <AvatarImg src={url} alt="profile photo" />
       <div style={{width: '100%'}}>
-        {fileName}
+        <h1 className={styles.name}>{"홍길동"}</h1>
+        <p className={styles.company}>{"코스모스"}</p>
+        <p className={styles.title}>{"엔지니어"}</p>
+        <p className={styles.email}>{"hong@hot.com"}</p>
+        <p className={styles.message}>{"메시지 테스트"}</p>
       </div>
     </CardLi>
   )

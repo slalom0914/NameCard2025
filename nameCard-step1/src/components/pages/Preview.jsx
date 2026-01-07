@@ -20,6 +20,7 @@ const CardsUl = styled.ul`
     align-items: center;/* 카드가 너무 작아졌다면 card.module.css로 가서 .card에 width: 100%로 준다  */
 `
 const Preview = ({cards}) => {
+  console.log(cards)
   return (
     <PreviewDiv>
       <TitleH1>Card Preview</TitleH1>

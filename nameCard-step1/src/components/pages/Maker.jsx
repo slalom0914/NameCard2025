@@ -24,26 +24,7 @@ const ContainerDiv = styled.div`
 
 const Maker = ({FileInput}) => {
 
-  const [cards, setCards] = useState({
-    '1':{
-      id: '1',
-      theme: 'dark',
-      fileName: 'lee',
-      fileURL: 'https://res.cloudinary.com/dabcqtmbm/image/upload/v1707156245/lmbxljzqmcylnyngwafk.jpg',
-    },
-    '2':{
-      id: '2',
-      theme: 'light',
-      fileName: 'kim',
-      fileURL: null,
-    },
-    '3':{
-      id: '3',
-      theme: 'colorful',
-      fileName: 'park',
-      fileURL: null,
-    },    
-  });   
+  const [cards, setCards] = useState({});//end of 더미 데이터   
 
   const navigate = useNavigate()
   const handleLogout = async() => {
