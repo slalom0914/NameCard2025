@@ -64,7 +64,7 @@ const FileInputDiv = styled.div`
   background: #F5EBE0;     
 `
 
-const CardEditorForm = ({FileInput, card}) => {
+const CardEditorForm = ({FileInput, card, insertOrUpdateCard, deleteCard}) => {
   const {name, company, theme, title, email, message, fileName, fileURL} = card
   const formRef = useRef();
   const nameRef = useRef();
@@ -75,9 +75,23 @@ const CardEditorForm = ({FileInput, card}) => {
   const messageRef = useRef();  
   const handleChange = (event) => {
     console.log(event.currentTarget)
+    if(event.currentTarget == null){
+      return
+    }
+    insertOrUpdateCard({
+      ...card,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
   }
-  const onFileChange = () => {
+  const onFileChange = (file) => {
     console.log('onFileChange')
+    //useState에 초기화된 배열에 사용자가 선택한 fileName과 fileURL을 추가해서
+    //배열을 수정해준다.
+    insertOrUpdateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url
+    })
   }
   const handleSubmit = () => {
     // 삭제 처리 - 기능 - 함수 - 어디에 선언할 것인가?
@@ -90,17 +104,17 @@ const CardEditorForm = ({FileInput, card}) => {
   return (
     <Form>
       {/* useRef는 document.querySelector */}
-      <Input ref={nameRef} name='name' value={name} placeholder='Name' />
-      <Input ref={companyRef} name='company' value={company} placeholder='Company' />
-      <Select name='theme' value={theme} onChange={handleChange}>
+      <Input ref={nameRef} name='name' value={name} onChange={handleChange} />
+      <Input ref={companyRef} name='company' value={company} onChange={handleChange}/>
+      <Select name='theme' value={theme} onChange={handleChange} >
         <option placeholder="light">light</option>
         <option placeholder="dark">dark</option>
         <option placeholder="colorful">colorful</option>
       </Select>
 
-      <Input ref={titleRef} name="title" value={title} placeholder='Title'  />
-      <Input ref={emailRef} name="email" value={email} placeholder='Email' />
-      <TextArea ref={messageRef} name='message' value={message} placeholder='Message' />
+      <Input ref={titleRef} name="title" value={title} onChange={handleChange} />
+      <Input ref={emailRef} name="email" value={email}  onChange={handleChange} />
+      <TextArea ref={messageRef} name='message' value={message} onChange={handleChange} />
 
       <FileInputDiv>
         <FileInput name={fileName} onChange={handleChange} onFileChange={onFileChange} />
