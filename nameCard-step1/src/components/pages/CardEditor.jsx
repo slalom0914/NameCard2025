@@ -20,12 +20,15 @@ const CardEditor = ({FileInput, cards, insertOrUpdateCard, deleteCard}) => {
       <TitleH1>Card Editor</TitleH1>
 			{Object.keys(cards).map(key => (
 				<CardEditorForm FileInput={FileInput} key={key} card={cards[key]}
-					insertOrUpdateCard={insertOrUpdateCard}
-					deleteCard={deleteCard}
+				//nosql은 입력,수정은 하나로 처리 가능함. id가 존재하면 수정함, 없으면 입력 
+					insertOrUpdateCard={insertOrUpdateCard} //수정
+					deleteCard={deleteCard} //삭제
 				/>
 			))}
 			{/* 새로 작성하기 이므로 card넘길 필요없음 */}
-			<CardAddForm FileInput={FileInput} insertOrUpdateCard={insertOrUpdateCard}  />
+			<CardAddForm FileInput={FileInput} 
+				insertOrUpdateCard={insertOrUpdateCard} //입력
+			/>
     </EditorDiv>
   )
 }
