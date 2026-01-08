@@ -65,7 +65,7 @@ const FileInputDiv = styled.div`
 `
 
 const CardEditorForm = ({FileInput, card}) => {
-  const {name, theme, fileName, fileURL} = card
+  const {name, company, theme, title, email, message, fileName, fileURL} = card
   const formRef = useRef();
   const nameRef = useRef();
   const companyRef = useRef();
@@ -90,17 +90,17 @@ const CardEditorForm = ({FileInput, card}) => {
   return (
     <Form>
       {/* useRef는 document.querySelector */}
-      <Input ref={nameRef} name='name' value={"나신입"} placeholder='Name' />
-      <Input ref={companyRef} name='company' placeholder='Company' />
+      <Input ref={nameRef} name='name' value={name} placeholder='Name' />
+      <Input ref={companyRef} name='company' value={company} placeholder='Company' />
       <Select name='theme' value={theme} onChange={handleChange}>
         <option placeholder="light">light</option>
         <option placeholder="dark">dark</option>
         <option placeholder="colorful">colorful</option>
       </Select>
 
-      <Input ref={titleRef} name="title" placeholder='Title'  />
-      <Input ref={emailRef} name="email" placeholder='Email' />
-      <TextArea ref={messageRef} name='message' placeholder='Message' />
+      <Input ref={titleRef} name="title" value={title} placeholder='Title'  />
+      <Input ref={emailRef} name="email" value={email} placeholder='Email' />
+      <TextArea ref={messageRef} name='message' value={message} placeholder='Message' />
 
       <FileInputDiv>
         <FileInput name={fileName} onChange={handleChange} onFileChange={onFileChange} />
