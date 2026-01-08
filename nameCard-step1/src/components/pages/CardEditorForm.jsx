@@ -100,6 +100,7 @@ const CardEditorForm = ({FileInput, card, insertOrUpdateCard, deleteCard}) => {
     // 이벤트 처리는 부모에서 발생하지 않는다. -> 즉 자손 태그에서 발동됨 -> 이벤트 소스도 자손에 있음
     // 이벤트 소스로 부터 얻어낼 정보가 있다.
     // 이것과 전역적인 상태값이 함께 필요하다.
+    deleteCard(card)
   }
   return (
     <Form>
