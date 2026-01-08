@@ -30,8 +30,11 @@ const Maker = ({FileInput, cardLogic}) => {
   // 로그인이 풀렸는지 아직 유지되고 있는지 체크
 
   useEffect(() => {
+    console.log('Maker effect')
     const unsubscribe = subscribeAuthChange((user) => {
+      console.log(user)
       if(user){
+        console.log(user.uid)
         // 여기까지 진입이되면 로그인 상태 라는 의미
         setUserId(user.uid)
       }

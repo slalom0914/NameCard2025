@@ -90,7 +90,7 @@ const CardEditorForm = ({FileInput, card}) => {
   return (
     <Form>
       {/* useRef는 document.querySelector */}
-      <Input ref={nameRef} name='name' placeholder='Name' />
+      <Input ref={nameRef} name='name' value={"나신입"} placeholder='Name' />
       <Input ref={companyRef} name='company' placeholder='Company' />
       <Select name='theme' value={theme} onChange={handleChange}>
         <option placeholder="light">light</option>
